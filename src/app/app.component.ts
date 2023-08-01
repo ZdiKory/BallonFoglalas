@@ -12,8 +12,6 @@ export class AppComponent {
   @ViewChild(DxSchedulerComponent, { static: false }) scheduler!: DxSchedulerComponent;
   appointmentsData: Appointment[];
   currentView: string = 'month';
-  peopleData: string[] = ["Janos", "Dani", "Valaki"];
-  ownerData: number[] = [1, 2, 3];
 
   constructor(private service: Service) {
     this.appointmentsData = service.getAppointments();
@@ -47,9 +45,10 @@ export class AppComponent {
       nearestHourEnd.setMinutes(endMinutes < 30 ? 0 : 60);
 
       // Check if the calculated endDate is greater than 20:00 (8:00 PM)
-      if (nearestHourEnd.getHours() >= 20) {
-        nearestHourEnd.setHours(20);
-        nearestHourEnd.setMinutes(0);
+      if (nearestHourEnd.getHours() >= 21) {
+        e.cancel = true;
+        alert('End time should be before 8:00 PM.');
+        return;
       }
 
       e.appointmentData.endDate = this.enforceHourlyInterval(nearestHourEnd);
@@ -58,9 +57,7 @@ export class AppComponent {
         e.cancel = true;
         alert('End date should be after start date.');
         return;
-
       }
-  
     }
   }
 
