@@ -1,0 +1,14 @@
+<dx-scheduler #scheduler
+              [dataSource]="appointmentsData"
+              startDateExpr="startDate"
+              endDateExpr="endDate"
+              textExpr="text"
+              [currentView]="currentView"
+              [views]="['day', 'week', 'month']"
+              [startDayHour]="9"
+              [endDayHour]="20"
+              (onContentReady)="customizeDateCell($event)"
+              (onAppointmentAdding)="onAppointmentAdding($event)"
+              (onAppointmentUpdating)="onAppointmentUpdating($event)"
+             >
+</dx-scheduler>
