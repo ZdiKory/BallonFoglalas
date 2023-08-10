@@ -1,8 +1,9 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DxSchedulerModule, DxFormModule, DxTextBoxModule, DxDateBoxModule, DxTagBoxModule, DxSelectBoxModule } from 'devextreme-angular'; // Add the necessary modules here
-
+import { DxSpeedDialActionModule, DxSchedulerModule, DxFormModule, DxTextBoxModule, DxDateBoxModule, DxTagBoxModule, DxSelectBoxModule } from 'devextreme-angular';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { AppComponent } from './app.component';
     DxTextBoxModule,
     DxDateBoxModule,
     DxTagBoxModule,
-    DxSelectBoxModule
+    DxSelectBoxModule,
+      DxSpeedDialActionModule,
+      FormsModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent],

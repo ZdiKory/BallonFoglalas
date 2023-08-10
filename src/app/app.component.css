@@ -1,3 +1,100 @@
-#scheduler {
-  height: 600px;
+
+:host ::ng-deep .dx-scheduler-header-panel-cell:first-child{
+    color:red;
+}
+::ng-deep .dx-device-desktop {
+  background-color: #4f5f76;
+}
+::ng-deep .dx-scheduler-date-table-cell {
+  background-color: #091f36;
+  border-color: dimgrey;
+}
+::ng-deep .dx-widget {
+  border-color: #4f5f76;
+}
+
+::ng-deep .dx-scheduler-header-tables-container {
+  border-color: dimgrey;
+  background-color: #4f5f76;
+  position: relative;
+  
+}
+
+::ng-deep .dx-scheduler-work-space-month .dx-scheduler-date-table-cell {
+  color: white;
+}
+
+
+::ng-deep .dx-scheduler-appointment-content{
+    color:whitesmoke;
+    font-weight:bold;
+}
+::ng-deep .dx-scheduler-work-space{
+    height:750px;
+    border-color:black;
+}
+::ng-deep .dx-scheduler-date-table-current-date {
+  background-color: #4f5f76;
+}
+::ng-deep .dx-scheduler-header-panel-cell {
+  font-weight: bold;
+  border-color: dimgray;
+  color: whitesmoke;
+}
+::ng-deep .dx-switch {
+ display:none;
+}
+::ng-deep .dx-layout-manager .dx-label-h-align.dx-flex-layout {
+  display: none;
+}
+::ng-deep .dx-layout-manager .dx-field-empty-item {
+    display:none;
+}
+::ng-deep .dx-toolbar-items-container {
+  background-color: #4f5f76;
+  border-color: #4f5f76;
+}
+
+::ng-deep .dx-popup-content {
+  background-color: #4f5f76;
+  color: white;
+  border-color: #4f5f76;
+}
+::ng-deep .dx-popup-bottom {
+  background-color: #4f5f76;
+  
+}
+::ng-deep .dx-field-item-label-text {
+  color: whitesmoke;
+}
+
+::ng-deep .dx-tooltip-appointment-item-content-subject {
+  color: whitesmoke;
+}
+
+::ng-deep .dx-tooltip-appointment-item-content-date {
+  color: whitesmoke;
+}
+
+::ng-deep .dx-scheduler-time-panel-cell {
+  background-color: #4f5f76;
+  border-color: #4f5f76;
+  color:whitesmoke;
+}
+::ng-deep .dx-scheduler-header-panel-empty-cell {
+  background-color: #4f5f76;
+}
+::ng-deep .dx-scheduler-header-panel-container {
+  background-color: #4f5f76;
+}
+
+::ng-deep .dx-scheduler-time-panel-cell.dx-scheduler-time-panel-current-time-cell {
+  color: cyan;
+}
+::ng-deep .dx-scheduler-header-panel-cell.dx-scheduler-header-panel-current-time-cell {
+  color: cyan;
+}
+::ng-deep .dx-datebox-datetime-time-side {
+  background-color: rgba(79, 95, 118, 1);
+ 
 }

@@ -1,4 +1,5 @@
 <dx-scheduler #scheduler
+              timeZone="Europe/Belgrade"
               [dataSource]="appointmentsData"
               startDateExpr="startDate"
               endDateExpr="endDate"
@@ -7,8 +8,27 @@
               [views]="['day', 'week', 'month']"
               [startDayHour]="9"
               [endDayHour]="20"
-              (onContentReady)="customizeDateCell($event)"
+              [showAllDayPanel]="false"
               (onAppointmentAdding)="onAppointmentAdding($event)"
               (onAppointmentUpdating)="onAppointmentUpdating($event)"
-             >
+              (onAppointmentDeleted)="onAppointmentDeleted($event)">
+
+  <dxi-resource fieldExpr="ownerId"
+                [allowMultiple]="true"
+                [dataSource]="resourcesData"
+                label="Owner"
+                [useColorAsDefault]="true"></dxi-resource>
+
+  <dxi-resource fieldExpr="priority"
+                [allowMultiple]="false"
+                [dataSource]="prioritiesData"
+                label="Number of people"></dxi-resource>
+
+  <dxo-editing #editingOptions
+               [allowAdding]="true"
+               [allowDeleting]="true"
+               [allowUpdating]="true">
+  </dxo-editing>
+
+
 </dx-scheduler>
