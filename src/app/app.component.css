@@ -98,3 +98,15 @@
   background-color: rgba(79, 95, 118, 1);
  
 }
+::ng-deep .dx-list-item-content {
+  background-color: #4f5f76;
+  color:whitesmoke;
+  font-weight:bold; 
+}
+.dx-scheduler-appointment-collector .dx-button-content, .dx-scheduler-appointment-collector .dx-scheduler-appointment-collector-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin:  4px;
+  padding: 5px;
+}

@@ -1,8 +1,8 @@
-import { Component, ViewChild,} from '@angular/core';
-import { Service, Appointment, Resource, Priority } from './app.service';
-import { DxSchedulerComponent, } from 'devextreme-angular';
-
+import { Component, ViewChild} from '@angular/core';
+import { Service, Appointment, Resource, Priority, } from './app.service';
+import { DxSchedulerComponent } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,13 +11,16 @@ import notify from 'devextreme/ui/notify';
 })
 export class AppComponent {
   title(title: any) {
-      throw new Error('Method not implemented.');
+    throw new Error('Method not implemented.');
   }
   @ViewChild(DxSchedulerComponent, { static: false }) scheduler!: DxSchedulerComponent;
   appointmentsData: Appointment[];
   resourcesData: Resource[];
   currentView: string = 'month';
   prioritiesData: Priority[];
+
+
+ 
 
 
   constructor(private service: Service) {
@@ -68,8 +71,8 @@ export class AppComponent {
   onAppointmentAdding(e: any) {
 
     this.showToast('Successfully added', e.appointmentData.text, 'success');
-   
-   
+
+
     if (!e.appointmentData.recurrence) {
       const startDate = new Date(e.appointmentData.startDate);
       const startHour = startDate.getHours();
@@ -91,7 +94,7 @@ export class AppComponent {
       const nearestHourEnd = new Date(endDate);
       nearestHourEnd.setMinutes(endMinutes < 30 ? 0 : 60);
 
-      
+
       if (nearestHourEnd.getHours() >= 21) {
         e.cancel = true;
         this.showToast('Wrong time', 'End time should be before 8:00 PM.', 'error');
@@ -144,8 +147,7 @@ export class AppComponent {
   startDayHour: number = 9;
   endDayHour: number = 20;
 
-  showAppointmentPopup(e: any) {
-    this.scheduler.instance.showAppointmentPopup();
-  }
 
 }
+
+
