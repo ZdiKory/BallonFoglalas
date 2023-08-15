@@ -9,9 +9,11 @@
               [startDayHour]="9"
               [endDayHour]="20"
               [showAllDayPanel]="false"
+              [adaptivityEnabled]="true"
               (onAppointmentAdding)="onAppointmentAdding($event)"
               (onAppointmentUpdating)="onAppointmentUpdating($event)"
-              (onAppointmentDeleted)="onAppointmentDeleted($event)">
+              (onAppointmentDeleted)="onAppointmentDeleted($event)"
+              (onAppointmentFormOpening)="onAppointmentFormOpening($event)">
 
   <dxi-resource fieldExpr="ownerId"
                 [allowMultiple]="true"
@@ -32,3 +34,9 @@
 
 
 </dx-scheduler>
+
+
+<dx-speed-dial-action #speedDialAction
+                      icon="plus"
+                      (onClick)="showAppointmentPopup($event)">
+</dx-speed-dial-action>

@@ -1,8 +1,7 @@
-import { Component, ViewChild, NgModule, enableProdMode } from '@angular/core';
-import { DxSchedulerModule } from 'devextreme-angular';
+import { Component, ViewChild,} from '@angular/core';
 import { Service, Appointment, Resource, Priority } from './app.service';
-import { DxSchedulerComponent, DxSpeedDialActionModule } from 'devextreme-angular';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { DxSchedulerComponent, } from 'devextreme-angular';
+
 import notify from 'devextreme/ui/notify';
 @Component({
   selector: 'app-root',
@@ -27,6 +26,29 @@ export class AppComponent {
     this.prioritiesData = service.getPriorities();
   }
 
+  onAppointmentFormOpening(e: any) {
+    const startDateEditor = e.form.getEditor('startDate');
+    const endDateEditor = e.form.getEditor('endDate');
+
+    if (startDateEditor && endDateEditor) {
+      startDateEditor.on('valueChanged', (args: { value: Date }): void => {
+        const newEndDate = new Date(args.value);
+        newEndDate.setHours(newEndDate.getHours() + 1);
+        endDateEditor.option('value', newEndDate);
+      });
+
+      endDateEditor.on('valueChanged', (args: { value: Date }): void => {
+        if (args.value <= startDateEditor.option('value')) {
+          const newStartDate = new Date(args.value);
+          newStartDate.setHours(newStartDate.getHours() - 1);
+          startDateEditor.option('value', newStartDate);
+        }
+      });
+    }
+  }
+
+
+
   showToast(event: string, message: string, type: string) {
     notify(`${event}: ${message}`, type, 2500);
   }
@@ -44,6 +66,7 @@ export class AppComponent {
 
 
   onAppointmentAdding(e: any) {
+
     this.showToast('Successfully added', e.appointmentData.text, 'success');
    
    
@@ -121,6 +144,8 @@ export class AppComponent {
   startDayHour: number = 9;
   endDayHour: number = 20;
 
- 
+  showAppointmentPopup(e: any) {
+    this.scheduler.instance.showAppointmentPopup();
+  }
 
 }
